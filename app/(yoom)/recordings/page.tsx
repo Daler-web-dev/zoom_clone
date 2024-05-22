@@ -8,14 +8,14 @@ export default function Home() {
           Meeting Recordings
         </h1>
 
-        <div className=" w-full grid grid-cols-2 gap-2">
-          <div className="w-[500px] h-[250px] bg-darkblue rounded-lg"></div>
+        <div className="grid grid-cols-2 gap-6 pt-7">
+          <div className="w-[550px] h-[250px] bg-darkblue rounded-lg"></div>
 
-          <div className="w-[500px] h-[250px] bg-darkblue rounded-lg"></div>
+          <div className="w-[550px] h-[250px] bg-darkblue rounded-lg"></div>
 
-          <div className="w-[500px] h-[250px] bg-darkblue rounded-lg"></div>
+          <div className="w-[550px] h-[250px] bg-darkblue rounded-lg"></div>
 
-          <div className="w-[500px] h-[250px] bg-darkblue rounded-lg"></div>
+          <div className="w-[550px] h-[250px] bg-darkblue rounded-lg"></div>
         </div>
       </div>
     </>
