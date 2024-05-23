@@ -11,6 +11,8 @@ export default function Home() {
           Meeting Recordings
         </h1>
 
+        
+
         <div className="grid grid-cols-2 gap-6 pt-7">
           <div className="w-[550px] h-[250px] bg-darkblue rounded-lg">
             <div className="py-7 px-6">
