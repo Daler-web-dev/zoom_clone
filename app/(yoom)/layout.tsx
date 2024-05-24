@@ -29,9 +29,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <aside
                 className="w-[264px] pt-[140px] px-3 fixed top-0 left-0 bottom-0 bg-darkblue z-10"
             >
-                <NavigateLinks/>
+                <NavigateLinks />
             </aside>
-            {children}
+            <main className="ml-[264px] px-9 py-11">
+                {children}
+            </main>
         </section>
     )
 }
