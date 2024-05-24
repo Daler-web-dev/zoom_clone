@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.cl-button__github {
+  background-color: #fff !important;
+}
+
+.cl-button__google {
+  background-color: #fff !important;
+}
+
+.cl-headerTitle {
+  display: none !important;
+}
+
+.cl-dividerLine {
+  background: #fff !important;
+}
+
+.cl-internal-180wb59 {
+  display: none !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

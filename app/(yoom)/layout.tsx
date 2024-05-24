@@ -1,5 +1,6 @@
 import NavigateLinks from "@/components/Navigate";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 
 
@@ -21,10 +22,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     />
                 </div>
 
-                <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
+                <SignedIn>
+                    <UserButton/>
+                </SignedIn>
             </header>
             <aside
                 className="w-[264px] pt-[140px] px-3 fixed top-0 left-0 bottom-0 bg-darkblue z-10"
