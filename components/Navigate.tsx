@@ -4,6 +4,11 @@ import Link from "next/link"
 import { RiHome5Line } from "react-icons/ri";
 import { GrSchedulePlay } from "react-icons/gr";
 import { usePathname } from "next/navigation";
+import { GoPlus } from "react-icons/go";
+import { HiOutlineVideoCamera } from "react-icons/hi";
+import { MdPreview } from "react-icons/md";
+
+
 
 function NavigateLinks() {
     const pathname = usePathname()
@@ -33,7 +38,7 @@ function NavigateLinks() {
                 href={"/previous-meetings"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/previous-meetings" && "bg-[#0E78F9] text-white"} `}
             >
-                <GrSchedulePlay
+                <MdPreview
                     size={28}
                 />
                 <span>Previous</span>
@@ -42,7 +47,7 @@ function NavigateLinks() {
                 href={"/recordings"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/recordings" && "bg-[#0E78F9] text-white"} `}
             >
-                <GrSchedulePlay
+                <HiOutlineVideoCamera
                     size={28}
                 />
                 <span>Recordings</span>
@@ -51,8 +56,8 @@ function NavigateLinks() {
                 href={"/personal-room"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/personal-room" && "bg-[#0E78F9] text-white"} `}
             >
-                <GrSchedulePlay
-                    size={28}
+                <GoPlus
+                    size={30}
                 />
                 <span>Personal room</span>
             </Link>
