@@ -10,6 +10,9 @@
 .cl-button__google {
   background-color: #fff !important;
 }
+.cl-button__facebook {
+  background-color: #fff !important;
+}
 
 .cl-headerTitle {
   display: none !important;
@@ -21,6 +24,23 @@
 
 .cl-internal-180wb59 {
   display: none !important;
+}
+.cl-internal-1j7ahlv {
+  width: 40px;
+  height: 40px;
+}
+.cl-internal-11ttlho {
+  display: none;
+}
+.cl-internal-1nn89fl {
+  color: #a3a5aa;
+}
+
+.cl-internal-qs9rkf, .cl-internal-ndrgk1 {
+  color: white;
+}
+.cl-internal-lqfubk {
+  display: none;
 }
 
 @layer base {
