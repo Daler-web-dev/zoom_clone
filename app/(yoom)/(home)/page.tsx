@@ -1,5 +1,7 @@
+import ModalDialog from "@/components/ModalDialog";
 import SettingBlocks from "@/components/SettingBlocks";
 import TimeComponent from "@/components/Time";
+import { Button } from "@/components/ui/button";
 
 
 
@@ -13,6 +15,11 @@ export default function Home() {
                 <SettingBlocks bg="#830EF9" desc="Plan your meeting" title="Schedule Meeting" src="/icons/Schedule.svg" />
                 <SettingBlocks bg="#F9A90E" desc="Meeting recordings" title="View Recordings" src="/icons/View.svg" />
             </div>
+            <ModalDialog
+                title={"Are you ready?"}
+            >
+                <Button>Yes</Button>
+            </ModalDialog>
         </div>
     )
 }
