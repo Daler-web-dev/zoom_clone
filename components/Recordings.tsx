@@ -12,9 +12,6 @@ type IRecord = {
 
 const Recordings: React.FC<IRecord> = ({ beginning, ending, title }) => {
   return (
-    
-
-
         <div className="w-[550px] h-[250px] bg-darkblue rounded-lg">
           <div className="py-7 px-6">
             <SlCamrecorder size={30} color="white" />

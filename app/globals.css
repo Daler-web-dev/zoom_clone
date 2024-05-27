@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.cl-userButtonPopoverActionButton {
+  color: #fff !important;
+}
 
+.cl-internal-16rjnjd{
+  display: none !important;
+}
 .cl-button__github {
   background-color: #fff !important;
 }
