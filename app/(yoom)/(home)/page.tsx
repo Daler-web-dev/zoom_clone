@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { MdContentCopy } from "react-icons/md";
 
-
 export default function Home() {
   const [isFirstModalOpen, setIsFirstModalOpen] = useState(true);
   const [isSecondModalOpen, setIsSecondModalOpen] = useState(false);
@@ -47,9 +46,6 @@ export default function Home() {
         />
       </div>
 
-
-
-
       {isFirstModalOpen && (
         <ModalDialog title={"Create Meeting"}>
           <div className="pt-6">
@@ -73,17 +69,14 @@ export default function Home() {
         <ModalDialog title={"Meeting Created"}>
           <div className="pt-6">
             <span> </span>
-            <Button
-              className="w-full mt-5 bg-[#0E78F9] flex gap-1"
-            >
-                <MdContentCopy />
+            <Button className="w-full mt-5 bg-[#0E78F9] flex gap-1">
+              <MdContentCopy />
               Copy Invitation
             </Button>
 
             <Button
               className="w-full mt-5"
               onClick={() => setIsSecondModalOpen(false)}
-            
             >
               Close
             </Button>
