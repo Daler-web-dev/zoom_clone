@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <NavigateLinks />
             </aside>
             
-            <main className="ml-[264px] px-9 py-11">
+            <main className="ml-[264px] px-9 py-11 text-white">
                 {children}
             </main>
         </section>
