@@ -16,9 +16,19 @@ export default function Home() {
                 <SettingBlocks bg="#F9A90E" desc="Meeting recordings" title="View Recordings" src="/icons/View.svg" />
             </div>
             <ModalDialog
-                title={"Are you ready?"}
+                isOpen={false}
+                onClose={() => false}
+                title={"Create Meeting"}
             >
-                <Button>Yes</Button>
+                <div className="flex flex-col justify-start text-white items-start gap-2.5">
+                    <label className="text-base font-normal" htmlFor="desc">Add a description</label>
+                    <input className="w-[470px] h-[70px] rounded bg-[#252A41] p-2.5 font-normal text-gray-400" type="text" name="desc" placeholder="Description" />
+                </div>
+                <div className="flex flex-col justify-start text-white items-start gap-2.5 py-[24px]">
+                    <label className="text-base font-normal" htmlFor="date">Select Date & Time</label>
+                    <input className="w-[470px] h-[70px] rounded bg-[#252A41] p-2.5 font-normal text-gray-400" type="date" name="date" placeholder="Choose your meeting date" />
+                </div>
+                <Button className="bg-[#0E78F9] h-10">Create Meeting</Button>
             </ModalDialog>
         </div>
     )
