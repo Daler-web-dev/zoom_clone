@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
     return (
-        <div className="pt-[30px] pr-[25px]">
+        <div>
             <TimeComponent />
             <div className="py-8 flex justify-start items-center gap-4">
                 <SettingBlocks bg="#FF742E" desc="Setup a new recording" title="New Meeting" src="/icons/Meeting.svg" />
