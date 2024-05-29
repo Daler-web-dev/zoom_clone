@@ -5,6 +5,8 @@ import TimeComponent from "@/components/Time";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
+import { MdContentCopy } from "react-icons/md";
+
 
 export default function Home() {
   const [isFirstModalOpen, setIsFirstModalOpen] = useState(true);
@@ -44,6 +46,10 @@ export default function Home() {
           src="/icons/View.svg"
         />
       </div>
+
+
+
+
       {isFirstModalOpen && (
         <ModalDialog title={"Create Meeting"}>
           <div className="pt-6">
@@ -68,8 +74,9 @@ export default function Home() {
           <div className="pt-6">
             <span> </span>
             <Button
-              className="w-full mt-5 bg-[#0E78F9]"
+              className="w-full mt-5 bg-[#0E78F9] flex gap-1"
             >
+                <MdContentCopy />
               Copy Invitation
             </Button>
 
