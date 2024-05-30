@@ -40,7 +40,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 </div>
                 <NavigateLinks />
             </aside>
-            <main className=" px-9 py-11">
+            <main className="ml-[249px] px-9 py-11">
                 {children}
             </main>
         </section>
