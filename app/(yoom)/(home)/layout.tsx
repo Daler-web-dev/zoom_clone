@@ -1,5 +1,4 @@
 import NavigateLinks from "@/components/Navigate";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import StreamVideoProvider from "@/provider/StreamVideoClient";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
