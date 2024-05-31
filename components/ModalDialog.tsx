@@ -1,13 +1,17 @@
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { FC, ReactNode } from "react"
-
+import Image from "next/image";
+import { ReactNode } from "react"
+import { Button } from "./ui/button";
+import { LuCopy } from "react-icons/lu";
+import { IoClose } from "react-icons/io5";
 interface MeetingModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -19,20 +23,37 @@ interface MeetingModalProps {
     instantMeeting?: boolean;
     image?: string;
     buttonClassName?: string;
-    buttonIcon?: string;
+    buttonIcon?: boolean;
 }
 
-const ModalDialog: FC<MeetingModalProps> = ({ isOpen, onClose, title, children, handleClick, buttonText, instantMeeting, image, buttonClassName, buttonIcon }) => {
+
+export default function ModalDialog({ title, image, children, className, buttonText, buttonIcon = false }: MeetingModalProps) {
     return (
         <Dialog>
-            <DialogTrigger className="text-white">Open</DialogTrigger>
-            <DialogContent className="bg-darkblue border-none">
-                <DialogHeader>
-                    <DialogTitle className="font-bold text-3xl text-white pb-2.5">{title}</DialogTitle>
-                    {children}
+            <DialogTrigger className="text-white" >Open</DialogTrigger>
+            <DialogContent
+                className="bg-darkblue w-full border-none text-white"
+            >
+                <DialogHeader
+                    className="flex items-center justify-center gap-2 flex-col"
+                >
+                    {image && <Image src={image} alt={title} width={200} height={200} className="w-20 h-20" />}
+                    <DialogTitle>{title}</DialogTitle>
                 </DialogHeader>
+                {children}
+                {/* <Button 
+                    variant="default" 
+                    className="flex items-center gap-2 bg-[#0E78F9] text-white" 
+                > 
+                   <LuCopy/>
+                </Button> */}
+
+                <DialogClose asChild>
+                    <Button type="button" variant="default">
+                        Close
+                    </Button>
+                </DialogClose>
             </DialogContent>
         </Dialog>
     )
 }
-export default ModalDialog

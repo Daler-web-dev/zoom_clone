@@ -11,7 +11,7 @@ type IBlock = {
 
  const  SettingBlocks: React.FC<IBlock> = ({src, title, desc, bg}) => {
     return (
-        <div 
+        <div     
             style={{background: bg}}
             className={`w-[260px] h-[260px] rounded-[14px] flex justify-between flex-col items-start py-6 px-5 cursor-pointer`}>
             <div className="w-[56px] h-[56px] rounded-[10px] bg-white/35 flex justify-center items-center">
