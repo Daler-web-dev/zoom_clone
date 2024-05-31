@@ -8,7 +8,22 @@ import {
 } from "@/components/ui/dialog"
 import { ReactNode } from "react"
 
-export default function ModalDialog({title, children}: {title: string, children: ReactNode }) {
+interface MeetingModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    title: string;
+    className?: string;
+    children?: ReactNode;
+    handleClick?: () => void;
+    buttonText?: string;
+    instantMeeting?: boolean;
+    image?: string;
+    buttonClassName?: string;
+    buttonIcon?: string;
+}
+
+
+export default function ModalDialog({ title, children }: { title: string, children: ReactNode }) {
     return (
         <Dialog>
             <DialogTrigger>Open</DialogTrigger>

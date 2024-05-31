@@ -20,7 +20,7 @@ export default function Home() {
 
     return (
         <main>
-            <div className="content pl-[300px] pt-[50px]">
+            <div className="content pt-[50px]">
                 <h1 className="text-white text-3xl font-bold">Personal Meeting Room</h1>
 
                 <div className="room_settings flex flex-col gap-[32px] pt-[50px]">
@@ -67,7 +67,7 @@ export default function Home() {
 
             <div className="hr w-full h-1 bg-[#1C1F2E] my-[50px]"></div>
 
-            <div className="content pl-[300px]">
+            <div className="content">
                 <Button className='bg-[#252A41] flex items-center gap-1.5 hover:bg-[#252A41]'>
                     <GoPlus size={28} />
                     <span>Create a new room</span>

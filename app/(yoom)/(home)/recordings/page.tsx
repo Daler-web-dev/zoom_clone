@@ -3,7 +3,7 @@ import Recordings from "@/components/Recordings";
 export default function Home() {
   return (
     <>
-      <div className="items-center pl-[5%]">
+      <div className="items-center">
         <h1 className="text-start  pt-[47px] text-white font-bold text-3xl">
           Meeting Recordings
         </h1>
