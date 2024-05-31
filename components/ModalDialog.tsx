@@ -1,64 +1,72 @@
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
 } from "@/components/ui/dialog";
 import Image from "next/image";
-import { ReactNode } from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 import { Button } from "./ui/button";
 import { LuCopy } from "react-icons/lu";
-import { IoClose } from "react-icons/io5";
 interface MeetingModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  className?: string;
-  children?: ReactNode;
-  handleClick?: () => void;
-  buttonText?: string;
-  instantMeeting?: boolean;
-  image?: string;
-  buttonClassName?: string;
-  buttonIcon?: boolean;
+    isOpen: boolean;
+    setIsOpen: (arg: boolean) => void;
+    title: string;
+    className?: string;
+    children?: ReactNode;
+    handleClick?: () => void;
+    buttonText?: string;
+    instantMeeting?: boolean;
+    image?: string;
+    buttonClassName?: string;
+    buttonIcon?: boolean;
 }
 
 export default function ModalDialog({
-  title,
-  image,
-  children,
-  className,
-  buttonText,
-  buttonIcon = false,
+    title,
+    image,
+    children,
+    className,
+    buttonText,
+    buttonIcon = false,
+    isOpen,
+    setIsOpen
 }: MeetingModalProps) {
-  return (
-    <Dialog>
-      {title !== "Meeting Created" ? <DialogTrigger className="text-white">Open</DialogTrigger> : <DialogTrigger className="text-white" aria-expanded="true" data-state="open">Open</DialogTrigger>}
-      <DialogContent className="bg-darkblue w-full border-none text-white">
-        <DialogHeader className="flex items-center justify-center gap-2 flex-col">
-          {image && (
-            <Image
-              src={image}
-              alt={title}
-              width={200}
-              height={200}
-              className="w-20 h-20"
-            />
-          )}
-          <DialogTitle>{title}</DialogTitle>
-        </DialogHeader>
-        {children}
-        {title === "Meeting Created" && (
-          <DialogClose asChild>
-            <Button type="button" variant="default">
-              Close
-            </Button>
-          </DialogClose>
-        )}
-      </DialogContent>
-    </Dialog>
-  );
+
+    return (
+        <Dialog>
+            <DialogTrigger className="text-white">Open</DialogTrigger>
+            <DialogContent className="bg-darkblue w-full border-none text-white">
+                <DialogHeader className="flex items-center justify-center gap-2 flex-col">
+                    {isOpen ? (
+                        <Image
+                            src="/icons/verified.svg"
+                            alt={title}
+                            width={200}
+                            height={200}
+                            className="w-20 h-20"
+                        />
+                    ) : null}
+                    <DialogTitle>{title}</DialogTitle>
+                </DialogHeader>
+                {!isOpen ? children : <Button className="flex items-center justify-center gap-1"><LuCopy /> Copy Invitation</Button>}
+                {isOpen ? (
+                    <DialogClose asChild>
+                        <Button
+                            onClick={() => {
+                                setIsOpen(!isOpen)
+                            }}
+                            type="button"
+                            variant="default"
+                        >
+                            Close
+                        </Button>
+                    </DialogClose>
+                ) : null}
+            </DialogContent>
+        </Dialog>
+    );
 }
