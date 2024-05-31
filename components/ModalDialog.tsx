@@ -1,14 +1,17 @@
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import Image from "next/image";
 import { ReactNode } from "react"
-
-
+import { Button } from "./ui/button";
+import { LuCopy } from "react-icons/lu";
+import { IoClose } from "react-icons/io5";
 interface MeetingModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -16,46 +19,44 @@ interface MeetingModalProps {
     className?: string;
     children?: ReactNode;
     handleClick?: () => void;
-    buttonText: string;
-    isMeeting: boolean;
+    buttonText?: string;
+    instantMeeting?: boolean;
     image?: string;
     buttonClassName?: string;
-    buttonIcon?: string;
-  }
-  
+    buttonIcon?: boolean;
+    trigger: ReactNode;
+}
 
-export default function ModalDialog(props: MeetingModalProps)  {
+
+export default function ModalDialog({ title, image, children, className, buttonText, buttonIcon = false, isOpen, trigger }: MeetingModalProps) {
     return (
-        <Dialog>
-            {
-                
-                 props.isMeeting ? (
-                    <>
-                        <DialogTrigger className={props.className}>
-                            {
-                                props.buttonIcon ? <img src={props.buttonIcon} alt={props.title} /> : null
-                            }
-                            {props.buttonText}
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>{props.title}</DialogTitle>
-                            </DialogHeader>
-                            {props.children}
-                        </DialogContent>
-                    </>
-                ) : (
-                    <>
-                        <DialogTrigger>Open</DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>{props.title}</DialogTitle>
-                            </DialogHeader>
-                            {props.children}
-                        </DialogContent>
-                    </>
-                )
-            }
+        <Dialog
+            open={isOpen}
+        >
+            <DialogTrigger className="text-white" >{trigger}</DialogTrigger>
+            <DialogContent
+                className="bg-darkblue w-full border-none text-white"
+            >
+                <DialogHeader
+                    className="flex items-center justify-center gap-2 flex-col"
+                >
+                    {image && <Image src={image} alt={title} width={200} height={200} className="w-20 h-20" />}
+                    <DialogTitle>{title}</DialogTitle>
+                </DialogHeader>
+                {children}
+                {/* <Button 
+                    variant="default" 
+                    className="flex items-center gap-2 bg-[#0E78F9] text-white" 
+                > 
+                   <LuCopy/>
+                </Button> */}
+
+                <DialogClose asChild>
+                    <Button type="button" variant="default">
+                        Close
+                    </Button>
+                </DialogClose>
+            </DialogContent>
         </Dialog>
     )
 }
