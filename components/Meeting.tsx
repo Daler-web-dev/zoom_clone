@@ -55,3 +55,4 @@ function MeetingCard({ title, date, users, isPassed }: meeting) {
 }
 
 export default MeetingCard;
+
