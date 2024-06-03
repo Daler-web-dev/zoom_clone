@@ -1,7 +1,15 @@
-import React from 'react'
+'use client'
+import { useUser } from '@clerk/nextjs'
+import { useParams } from 'next/navigation'
+import React, { useState } from 'react'
 
 export default function Meeting() {
-  return (
-    <div>page</div>
-  )
+	const {id} = useParams()
+	const {user, isLoaded} = useUser()
+	const [] = useState()
+
+	
+	return (
+		<div>page</div>
+	)
 }
