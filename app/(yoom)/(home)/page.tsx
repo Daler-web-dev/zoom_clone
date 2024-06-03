@@ -54,7 +54,7 @@ export default function Home() {
                                 variant="default"
                                 className="flex items-center gap-2 bg-[#0E78F9] text-white"
                             >
-                                <LuCopy />
+                                <LuCopy /> Copy Invitation
                             </Button>
                         </>
                     ) : (

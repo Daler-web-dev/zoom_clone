@@ -43,12 +43,7 @@ export default function ModalDialog({ title, image, children, className, buttonT
                     <DialogTitle>{title}</DialogTitle>
                 </DialogHeader>
                 {children}
-                {/* <Button 
-                    variant="default" 
-                    className="flex items-center gap-2 bg-[#0E78F9] text-white" 
-                > 
-                   <LuCopy/>
-                </Button> */}
+                
 
                 <DialogClose asChild>
                     <Button type="button" variant="default">
