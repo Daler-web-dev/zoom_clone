@@ -14,7 +14,7 @@ function TimeComponent() {
 
 
     return (
-        <div className="w-full h-[400px] bg-[url('/images/timeBg.png')] bg-cover bg-no-repeat flex justify-start items-center pl-10">
+        <div className="w-full h-[400px] bg-[url('/images/timeBg.png')] bg-cover bg-no-repeat flex justify-start items-center pl-10 rounded-lg">
             <div className="h-full flex justify-between items-start flex-col text-[#ECF0FF] py-[40px]">
                 <div className="rounded py-4 px-5 bg-white/5 font-normal text-base">Upcoming Meeting at: <span>12:00 PM</span></div>
                 <div className="flex justify-center items-start flex-col gap-2.5 ">
