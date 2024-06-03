@@ -16,7 +16,7 @@ const HomeCard = ({ className, img, title, description, handleClick }: HomeCardP
             className={cn("px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer text-white", className)}
             onClick={handleClick}
         >
-            <div className="flex-center bg-white/5 size-12 rounded-[10px]">
+            <div className="flex-center bg-white/5 size-12 rounded-[10px] flex items-center justify-center">
                 <Image src={img} alt="meeting" width={27} height={27} />
             </div>
             <div className="flex flex-col gap-2">
