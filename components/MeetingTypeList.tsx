@@ -8,6 +8,9 @@ import HomeCard from './HomeCard';
 import MeetingModal from './ModalDialog';
 import { useRouter } from 'next/navigation';
 import { useToast } from './ui/use-toast';
+import { useForm } from 'react-hook-form';
+import { useUser } from '@clerk/nextjs';
+import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 
 const initialValues = {
     dateTime: new Date(),
@@ -18,12 +21,66 @@ const initialValues = {
 export default function MeetingTypeList() {
 
     const router = useRouter();
+    const [callDetails, setCallDetails] = useState<Call>()
     const [meetingState, setMeetingState] = useState<
         'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined>(undefined);
     const [values, setValues] = useState(initialValues);
-    console.log(values);
-    
     const { toast } = useToast();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = async (data: any) => {
+        console.log(data);
+    }
+
+    const { user } = useUser()
+    const client = useStreamVideoClient()
+
+    const createMeeting = async () => {
+        if (!client || !user) return
+
+        try {
+            const id = crypto.randomUUID()
+            const call = client.call('default', id)
+
+            if (!call) throw new Error('Failed to create a call')
+
+            const startsAt = values.dateTime || new Date(Date.now()).toISOString()
+            const description = values.description || "Instant meeting"
+
+            await call.getOrCreate({
+                data: {
+                    starts_at: startsAt,
+                    custom: {
+                        description
+                    }
+                }
+            })
+
+
+            setCallDetails(call)
+
+            if (!values.description) {
+                router.push(`/meeting/${call.id}`)
+            }
+            toast({
+                title: "Call created"
+            })
+        } catch (e) {
+            toast({
+                title: "Error: couldn't create a call!"
+            })
+        }
+
+
+    }
+
+    console.log(meetingState);
+
     return (
         <section className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-10 xl:grid-cols-4">
             <HomeCard
@@ -124,7 +181,7 @@ export default function MeetingTypeList() {
                 title="Start an Instant Meeting"
                 className="text-center"
                 buttonText="Start Meeting"
-                handleClick={() => { }}
+                handleClick={createMeeting}
             />
         </section>
     )
