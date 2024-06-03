@@ -87,8 +87,8 @@ export default function MeetingTypeList() {
                     />
                 </div>
             </MeetingModal>
-            (
-            {/* <MeetingModal
+            {/* (
+            <MeetingModal
                 isOpen={meetingState === 'isScheduleMeeting'}
                 onClose={() => setMeetingState(undefined)}
                 title="Meeting Created"
@@ -100,8 +100,8 @@ export default function MeetingTypeList() {
                 buttonIcon="/icons/copy.svg"
                 className="text-center"
                 buttonText="Copy Meeting Link"
-            /> */}
-            )
+            />
+            ) */}
 
             <MeetingModal
                 isOpen={meetingState === 'isJoiningMeeting'}
