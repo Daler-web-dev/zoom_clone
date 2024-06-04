@@ -12,13 +12,13 @@ const MeetingTypeList = () => {
     const router = useRouter()
     const [meetingState, setMeetingState] = useState<"isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined>()
 
-    const [callDetails, setCallDetails] = useState<Call>()
     const { toast } = useToast()
     const [values, setValues] = useState({
-        dateTime: new Date().toISOString(),
+        dateTime: new Date(),
         description: '',
         link: ''
     })
+    const [callDetails, setCallDetails] = useState<Call>()
 
     const { user } = useUser()
     const client = useStreamVideoClient()
@@ -39,7 +39,7 @@ const MeetingTypeList = () => {
 
             if (!call) throw new Error('Failed to create a call')
 
-            const startsAt = values.dateTime || new Date(Date.now()).toISOString()
+            const startsAt = values.dateTime.toISOString() || new Date(Date.now()).toISOString()
             const description = values.description || "Instant meeting"
 
             await call.getOrCreate({
