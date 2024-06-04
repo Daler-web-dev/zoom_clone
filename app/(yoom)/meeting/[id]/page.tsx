@@ -22,7 +22,7 @@ export default function Meeting() {
 			<StreamCall call={call}>
 				<StreamTheme>
 					{!isSetupComplete ? (
-						<MeetingSetup />
+						<MeetingSetup setIsSetupComplete={setIsSetupComplete}/>
 					) : (
 						<MeetingRoom />
 					)}
