@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
         <section className="w-full" >
-            <StreamVideoProvider>
                 <header
                     className="z-20 w-full py-4 px-14 bg-darkblue flex items-center justify-end relative"
                 >
@@ -44,8 +43,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <main className="ml-[249px] px-9 py-11">
                     {children}
                 </main>
-            </StreamVideoProvider>
-            
         </section>
     )
 }

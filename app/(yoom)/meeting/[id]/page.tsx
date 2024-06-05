@@ -12,9 +12,6 @@ export default function Meeting() {
 	const { user, isLoaded } = useUser()
 	const {call, isCallLoading} = useGetCallById(id)
 
-	console.log({isCallLoading, isLoaded});
-	
-
 	if(!isLoaded || isCallLoading) return <h1>Loading...</h1>
 
 	return (
