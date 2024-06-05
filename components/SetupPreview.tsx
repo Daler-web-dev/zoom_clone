@@ -6,7 +6,9 @@ export default function SetupPreview({ setSetUpCompleted }: { setSetUpCompleted:
 	const [toggle, setToggle] = useState(false)
 	const call = useCall()
 
-	if (!call) return
+	if (!call) {
+		throw new Error('Error')
+	}
 
 	useEffect(() => {
 		if (toggle) {
