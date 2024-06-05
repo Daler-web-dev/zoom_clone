@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
+import { log } from "console";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -69,7 +70,7 @@ export default function Home() {
 
 
         } catch(e) {
-
+            console.log(e);
         }
 
 
