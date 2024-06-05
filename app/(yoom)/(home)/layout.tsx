@@ -9,10 +9,27 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <section className="w-full" >
             <StreamVideoProvider>
                 <header
-                    className="z-20 w-full py-8 px-6 bg-darkblue flex items-center justify-between relative"
+                    className="z-20 w-full py-4 px-14 bg-darkblue flex items-center justify-end relative"
+                >
+
+
+                    <SignedIn>
+                        <UserButton
+                            appearance={{
+                                variables: {
+                                    colorText: "#fff",
+                                    colorPrimary: "red",
+                                    colorBackground: "#1C1F2E",
+                                }
+                            }}
+                        />
+                    </SignedIn>
+                </header>
+                <aside
+                    className="w-[264px] pt-[140px] px-3 fixed top-0 left-0 bottom-0 bg-darkblue z-30"
                 >
                     <div
-                        className="h-10"
+                        className="h-10 absolute top-10"
                     >
                         <Image
                             src="/logo.svg"
@@ -22,21 +39,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                             className="h-full object-contain"
                         />
                     </div>
-
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
-                </header>
-                <aside
-                    className="w-[264px] pt-[140px] px-3 fixed  top-0 left-0 bottom-0 bg-darkblue z-10"
-                >
                     <NavigateLinks />
                 </aside>
-
-                <main className="ml-[264px] px-9 py-11">
+                <main className="ml-[249px] px-9 py-11">
                     {children}
                 </main>
             </StreamVideoProvider>
+            
         </section>
     )
 }

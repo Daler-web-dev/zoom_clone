@@ -1,17 +1,12 @@
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import Image from "next/image";
-import { ReactNode } from "react"
+
+"use client";
+import { ReactNode } from "react";
+import { Dialog, DialogContent } from "./ui/dialog";
+import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { LuCopy } from "react-icons/lu";
 import { IoClose } from "react-icons/io5";
+import Image from "next/image";
 
 interface MeetingModalProps {
     isOpen: boolean;
@@ -24,33 +19,56 @@ interface MeetingModalProps {
     instantMeeting?: boolean;
     image?: string;
     buttonClassName?: string;
-    buttonIcon?: boolean;
+    buttonIcon?: string;
 }
 
-
-
-export default function ModalDialog({ title, image, children, className, buttonText, isOpen, buttonIcon = false }: MeetingModalProps) {
+const MeetingModal = ({
+    isOpen,
+    onClose,
+    title,
+    className,
+    children,
+    handleClick,
+    buttonText,
+    instantMeeting,
+    image,
+    buttonClassName,
+    buttonIcon,
+}: MeetingModalProps) => {
     return (
-        <Dialog>
-            <DialogTrigger className="text-white" >Open</DialogTrigger>
-            <DialogContent
-                className="bg-darkblue w-full border-none text-white"
-            >
-                <DialogHeader
-                    className="flex items-center justify-center gap-2 flex-col"
-                >
-                    {image && <Image src={image} alt={title} width={200} height={200} className="w-20 h-20" />}
-                    <DialogTitle>{title}</DialogTitle>
-                </DialogHeader>
-                {children}
-                
-
-                <DialogClose asChild>
-                    <Button type="button" variant="default">
-                        Close
+        <Dialog open={isOpen} onOpenChange={onClose}>
+            <DialogContent className="flex w-full max-w-[520px] flex-col gap-6 border-none bg-[#1c1f2e] px-6 py-9 text-white">
+                <div className="flex flex-col gap-6">
+                    {image && (
+                        <div className="flex justify-center">
+                            <Image src={image} alt="checked" width={72} height={72} />
+                        </div>
+                    )}
+                    <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
+                        {title}
+                    </h1>
+                    {children}
+                    <Button
+                        className={
+                            "bg-[#0e78f9] focus-visible:ring-0 focus-visible:ring-offset-0"
+                        }
+                        onClick={handleClick}
+                    >
+                        {buttonIcon && (
+                            <Image
+                                src={buttonIcon}
+                                alt="button icon"
+                                width={13}
+                                height={13}
+                            />
+                        )}{" "}
+                        &nbsp;
+                        {buttonText || "Schedule Meeting"}
                     </Button>
-                </DialogClose>
+                </div>
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};
+
+export default MeetingModal;
