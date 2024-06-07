@@ -62,7 +62,6 @@ export default function Home() {
             if(!values.description) {
                 // router.push(`/meeting/${call.id}`)
                 console.log(call.id);
-                
             }
 
 
