@@ -16,7 +16,7 @@ function NavigateLinks() {
 
     return (
         <nav className="w-full flex flex-col gap-3" >
-            <Link
+            <a
                 href={"/"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/" && "bg-[#0E78F9] text-white"} `}
             >
@@ -24,8 +24,8 @@ function NavigateLinks() {
                     size={28}
                 />
                 <span>Home</span>
-            </Link>
-            <Link
+            </a>
+            <a
                 href={"/upcoming-meetings"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/upcoming-meetings" && "bg-[#0E78F9] text-white"} `}
             >
@@ -33,8 +33,8 @@ function NavigateLinks() {
                     size={28}
                 />
                 <span>Upcoming</span>
-            </Link>
-            <Link
+            </a>
+            <a
                 href={"/previous-meetings"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/previous-meetings" && "bg-[#0E78F9] text-white"} `}
             >
@@ -42,8 +42,8 @@ function NavigateLinks() {
                     size={28}
                 />
                 <span>Previous</span>
-            </Link>
-            <Link
+            </a>
+            <a
                 href={"/recordings"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/recordings" && "bg-[#0E78F9] text-white"} `}
             >
@@ -51,7 +51,7 @@ function NavigateLinks() {
                     size={28}
                 />
                 <span>Recordings</span>
-            </Link>
+            </a>
             <Link
                 href={"/personal-room"}
                 className={`w-full rounded-lg flex items-center gap-4 text-[#C9DDFF] p-4 ${pathname === "/personal-room" && "bg-[#0E78F9] text-white"} `}

@@ -1,33 +1,30 @@
 'use client'
-
 import MeetingRoom from '@/components/MeetingRoom'
-import MeetingSetup from '@/components/MeetingSetup'
-import { useGetcallById } from '@/hooks/useGetCallbyId'
+import SetupPreview from '@/components/SetupPreview'
+import { useGetCallById } from '@/hooks/useGetCallById'
 import { useUser } from '@clerk/nextjs'
-import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk'
-import Loader from '@/components/Loader'
+import { Call, StreamCall, StreamTheme, VideoPreview, useCall, useCallStateHooks } from '@stream-io/video-react-sdk'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
 export default function Meeting() {
+	const [setCompleted, setSetUpCompleted] = useState<boolean>(false)
 	const { id } = useParams()
-	const { user, isLoaded } = useUser()
-	const [isSetupComplete, setIsSetupComplete] = useState(false)
-	const { call, isCallLoading } = useGetcallById(id)
 
-	if (!isLoaded || isCallLoading) return <Loader />
+	const { user, isLoaded } = useUser()
+	const { call, isCallLoading } = useGetCallById(id)
+
+	if (!isLoaded || isCallLoading) return <h1>Loading...</h1>
 
 	return (
-		<main className='h-screen w-full'>
-			<StreamCall call={call}>
-				<StreamTheme>
-					{!isSetupComplete ? (
-						<MeetingSetup setIsSetupComplete={setIsSetupComplete}/>
-					) : (
+		<StreamCall call={call}>
+			<StreamTheme>
+				{
+					!setCompleted ?
+						<SetupPreview setSetUpCompleted={setSetUpCompleted} /> :
 						<MeetingRoom />
-					)}
-				</StreamTheme>
-			</StreamCall>
-		</main>
+				}
+			</StreamTheme>
+		</StreamCall>
 	)
 }
