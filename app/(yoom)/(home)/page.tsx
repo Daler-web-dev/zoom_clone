@@ -8,11 +8,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-
 export default function Home() {
 
     return (
-        <div className="pr-[25px]">
+        <div>
             <TimeComponent />
             <MeetingTypeList />
         </div>

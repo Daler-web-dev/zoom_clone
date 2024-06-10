@@ -26,9 +26,7 @@ export default function SetupPreview({ setSetUpCompleted }: { setSetUpCompleted:
 		>
 			<div>
 				<h1 className='font-bold text-2xl' >Setup</h1>
-				<div className='w-[600px] h-[400px] border-blue-800 border-2 flex items-center justify-center ' >
-					<VideoPreview />
-				</div>
+				<VideoPreview />
 				<label
 					className='flex items-center gap-2 '
 					htmlFor="micCam"
@@ -40,16 +38,18 @@ export default function SetupPreview({ setSetUpCompleted }: { setSetUpCompleted:
 					/>
 					Join with camera and microphone
 				</label>
-				<DeviceSettings />
-				<button
-					onClick={() => { 
-						call.join()
+				<div className='flex justify-center items-center gap-5 mt-5'>
+					<button
+						onClick={() => {
+							call.join()
 
-						setSetUpCompleted(true)
-					}}
-				>
-					join meeting
-				</button>
+							setSetUpCompleted(true)
+						}}
+					>
+						join meeting
+					</button>
+					<DeviceSettings />
+				</div>
 			</div>
 		</section>
 	)
