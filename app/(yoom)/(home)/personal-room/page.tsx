@@ -20,7 +20,7 @@ export default function Home() {
 
     return (
         <main>
-            <div className="content pl-[300px] pt-[50px]">
+            <div>
                 <h1 className="text-white text-3xl font-bold">Personal Meeting Room</h1>
 
                 <div className="room_settings flex flex-col gap-[32px] pt-[50px]">
