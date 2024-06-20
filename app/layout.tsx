@@ -42,4 +42,7 @@ export default function RootLayout({
 			</ClerkProvider>
 		</html>
 	);
+
+
+	
 }
