@@ -11,21 +11,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     className="z-20 w-full py-4 px-14 bg-darkblue flex items-center justify-end relative"
                 >
 
-<<<<<<< HEAD
-                <SignedIn>
-                    <UserButton/>
-                </SignedIn>
-            </header>
-            <aside
-                className="w-[264px] pt-[140px] px-3 fixed  top-0 left-0 bottom-0 bg-darkblue z-10"
-            >
-                <NavigateLinks />
-            </aside>
-            
-            <main className="ml-[264px] px-9 py-11 text-white">
-                {children}
-            </main>
-=======
 
                     <SignedIn>
                         <UserButton
@@ -58,7 +43,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <main className="ml-[265px] px-9 py-11">
                     {children}
                 </main>
->>>>>>> 6a8f70269575c8abb69ca234b36ce5da20be175c
         </section>
     )
 }
